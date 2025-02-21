@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--<bean id="alien" class="is.webworks.Alien" scope="prototype">
+    </bean>-->
+    <bean id="alien" class="is.webworks.Alien" autowire="byType">
+        <property name="age" value="21" />
+        <property name="computer">
+            <bean id="computer" class="is.webworks.Laptop" primary="true">
+            </bean>
+        </property>
+        <!--<property name="laptop" ref="laptop" />-->
+        <!-- can use type, name or index -->
+        <!--<constructor-arg type="int" value="21" />
+        <constructor-arg type="is.webworks.Laptop" ref="laptop" />-->
+
+        <!--<constructor-arg name="age" value="21" />
+        <constructor-arg name="laptop" ref="laptop" />-->
+    </bean>
+    <bean id="computer1" class="is.webworks.Laptop" primary="true">
+    </bean>
+    <bean id="computer2" class="is.webworks.Desktop" lazy-init="true">
+    </bean>
+</beans>
